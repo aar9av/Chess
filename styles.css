@@ -1,0 +1,90 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+table {
+    height: min(100%, 100vw);
+    border-collapse: collapse;
+    width: min(100%, 100vh);
+    border: 2.5vh solid #574f50;
+}
+
+td {
+    width: 12.5%;
+    /* Set each cell width to occupy 1/8th of the table width */
+    height: 12.5%;
+    /* Set each cell height to occupy 1/8th of the table height */
+    text-align: center;
+    position: relative;
+    /* Ensure the table cell is positioned relative */
+    padding: 0;
+}
+
+/* Customize even cells */
+tr:nth-child(even) td:nth-child(even),
+tr:nth-child(odd) td:nth-child(odd) {
+    background-color: #ffffff;
+    /* Brown color for even cells */
+}
+
+/* Customize odd cells */
+tr:nth-child(even) td:nth-child(odd),
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: #cccccc;
+    /* Beige color for odd cells */
+}
+
+.piece {
+    font-size: 6vh;
+    /* Adjust the font size to increase the size of the pieces */
+}
+
+.current-player {
+    font-size: 7vh;
+    /* Adjust the font size as desired */
+}
+
+/* Highlight valid moves */
+td.valid-move::after {
+    content: '';
+    position: absolute;
+    width: 2.5vh;
+    height: 2.5vh;
+    border-radius: 50%;
+    background-color: #9497a0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+td.attacking-position::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 94, 0, 0.336);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Add styles for the reset button */
+.reset-button {
+    height: 8vh;
+    width: min(100% - 4vw, 100vh - 4vw);
+    margin: 2vw;
+    background-color: #574f50;
+    color: #cccccc;
+    border: none;
+    border-radius: 5px;
+    font-size: 4vh;
+}
+
+/* Style the button on hover */
+.reset-button:hover {
+    background-color: #cccccc;
+    color: #574f50;
+}
